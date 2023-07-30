@@ -14,6 +14,28 @@ export const getVentas = async(req, res) => {
     }
 }
 
+export const getDetalleVenta = async(req, res) => {
+
+    const {idVenta} = req.params;
+
+    try {
+        
+        const pool = await getConnection();
+
+
+
+        const result = await pool.request()
+            .input('idVenta', sql.Int, idVenta)    
+            .query(queries.getDetalleVentaByID);
+
+        res.json(result.recordset);
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 export const realizaVenta = async(req, res) => {
 
     const {cliente, fecha_emision, detalle} = req.body;

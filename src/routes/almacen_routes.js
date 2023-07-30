@@ -1,12 +1,15 @@
 import { Router } from "express";
 import { actualizaProducto, buscarProductos, eliminaProducto, getAllProductos, getProductoPorID, guardaProducto } from "../controllers/productos_controller";
-import { getVentas, realizaVenta } from "../controllers/ventas_controller";
+import { getDetalleVenta, getVentas, realizaVenta } from "../controllers/ventas_controller";
 
 const router = Router();
 
 //VENTAS
 router.get("/ventas", getVentas);
 router.post("/ventas", realizaVenta);
+
+//DETALLE VENTA
+router.get("/detalleVenta/:idVenta", getDetalleVenta);
 
 //PRODUCTOS
 router.get("/productos", getAllProductos);

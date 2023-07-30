@@ -25,7 +25,7 @@ export const getProductoPorID = async (req, res) => {
 
         const result = await pool.request()
             .input('idProducto', sql.Int, idProducto)
-            .query(queries.getProductoPorID);;
+            .query(queries.getProductoPorID);
 
         res.json(result.recordset);
 

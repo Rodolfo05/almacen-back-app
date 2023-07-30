@@ -4,6 +4,9 @@ export const queries = {
     insertVenta: 'INSERT INTO VENTAS (CLIENTE, FECHA_EMISION) VALUES (@cliente, @fecha_emision)',
     insertDetalleVenta: 'INSERT INTO DETALLE_VENTA (PRECIO_UNITARIO, CANTIDAD, TOTAL_LINEA) VALUES (@precio, @cantidad, @total)',
 
+    //DETALLE VENTAS
+    getDetalleVentaByID: 'SELECT * FROM DETALLE_VENTA WHERE ID_VENTA = @idVenta',
+
     //PRODUCTOS
     getProductos: "SELECT * FROM PRODUCTOS WHERE ESTADO = '1'",
     getProductoPorID: "SELECT * FROM PRODUCTOS WHERE ESTADO = '1' and ID = @idProducto",
